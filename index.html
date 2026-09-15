@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
         (function() {
             const saved = localStorage.getItem('theme');
@@ -17,6 +17,8 @@
             if (saved === 'dark' || (!saved && prefersDark)) {
                 document.documentElement.setAttribute('data-theme', 'dark');
             }
+            const savedLang = localStorage.getItem('portfolio_lang') || 'fr';
+            document.documentElement.setAttribute('lang', savedLang);
         })();
     </script>
 </head>
@@ -28,13 +30,17 @@
             <a href="#presentation" class="logo">Portfolio.</a>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="#presentation" class="nav-link">Présentation</a></li>
-                    <li><a href="#dernier-projet" class="nav-link">Dernier Projet</a></li>
-                    <li><a href="#works" class="nav-link">Mes Travaux</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#presentation" class="nav-link" data-i18n="nav_presentation">Présentation</a></li>
+                    <li><a href="#dernier-projet" class="nav-link" data-i18n="nav_latest">Dernier Projet</a></li>
+                    <li><a href="#works" class="nav-link" data-i18n="nav_works">Mes Travaux</a></li>
+                    <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-tools">
+                <button id="lang-toggle" class="lang-btn" aria-label="Passer en anglais" title="Passer en anglais / Switch to English">
+                    <i class="fas fa-globe"></i>
+                    <span id="lang-label">EN</span>
+                </button>
                 <button id="theme-toggle" class="theme-btn" aria-label="Basculer de thème" title="Mode Sombre / Mode Clair">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -45,15 +51,15 @@
 
     <section id="presentation" class="hero">
         <div class="container hero-content">
-            <span class="hero-tag">Bonjour, je suis</span>
-            <h1 class="hero-title">Créatif & Développeur</h1>
-            <p class="hero-desc">
+            <span class="hero-tag" data-i18n="hero_tag">Bonjour, je suis</span>
+            <h1 class="hero-title" data-i18n="hero_title">Créatif & Développeur</h1>
+            <p class="hero-desc" data-i18n="hero_desc">
                 Bienvenue sur mon portfolio. Je conçois des applications web modernes, fluides et élégantes avec une
                 attention particulière à l'architecture, aux performances et à l'expérience utilisateur.
             </p>
             <div class="hero-btns">
-                <a href="#dernier-projet" class="btn btn-primary">Dernier projet</a>
-                <a href="#works" class="btn btn-secondary">Voir mes travaux</a>
+                <a href="#dernier-projet" class="btn btn-primary" data-i18n="hero_btn_latest">Dernier projet</a>
+                <a href="#works" class="btn btn-secondary" data-i18n="hero_btn_works">Voir mes travaux</a>
             </div>
         </div>
     </section>
@@ -61,8 +67,8 @@
     <section id="dernier-projet" class="section dernier-projet">
         <div class="container">
             <div class="section-head text-center">
-                <h2 class="section-title">DERNIER PROJET</h2>
-                <p class="section-subtitle">Découvrez ma dernière réalisation en vidéo — Cliquez pour visiter le site</p>
+                <h2 class="section-title" data-i18n="latest_title">DERNIER PROJET</h2>
+                <p class="section-subtitle" data-i18n="latest_subtitle">Découvrez ma dernière réalisation en vidéo — Cliquez pour visiter le site</p>
             </div>
             
             <div class="lead-wrapper">
@@ -76,12 +82,12 @@
                         <div class="video-hover">
                             <div class="cta-badge">
                                 <span class="play-icon"><i class="fas fa-external-link-alt"></i></span>
-                                <span class="cta-text">Visiter le site : ometitnoobz.github.io/Web/</span>
+                                <span class="cta-text" data-i18n="latest_cta">Visiter le site : ometitnoobz.github.io/Web/</span>
                             </div>
                         </div>
                     </div>
                     <div class="lead-meta">
-                        <div class="tag-pill"><i class="fas fa-layer-group"></i> OmeRyth — Logiciel de Doublage & Bande Rythmo</div>
+                        <div class="tag-pill" data-i18n="latest_pill"><i class="fas fa-layer-group"></i> OmeRyth — Logiciel de Doublage & Bande Rythmo</div>
                         <span class="tag-link">https://ometitnoobz.github.io/Web/ <i class="fas fa-arrow-right"></i></span>
                     </div>
                 </a>
@@ -92,22 +98,31 @@
     <section id="works" class="section travaux bg-light">
         <div class="container">
             <div class="section-head text-center">
-                <h2 class="section-title">Mes Travaux</h2>
-                <p class="section-subtitle">Découvrez quelques-uns de mes récents projets et réalisations.</p>
+                <h2 class="section-title" data-i18n="works_title">Mes Travaux</h2>
+                <p class="section-subtitle" data-i18n="works_subtitle">Découvrez quelques-uns de mes récents projets et réalisations.</p>
             </div>
 
             <div class="projects-grid">
                 <div class="project-card" data-id="1">
                     <div class="card-media">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Marathon Web" class="card-img">
+                        <img src="assets/images/culture-jazz-site.png"
+                            alt="Marathon Web — Culture Jazz" class="card-img" id="card-img-1" data-idx="0">
                         <div class="card-hover">
-                            <span class="btn-more"><i class="fas fa-search-plus"></i> En savoir plus</span>
+                            <span class="btn-more" data-i18n="card1_btn"><i class="fas fa-images"></i> Voir le carrousel & détails</span>
+                        </div>
+                        <span class="carousel-badge" data-i18n="card1_badge"><i class="fas fa-images"></i> 3 images</span>
+                        <div class="card-slider-nav">
+                            <button type="button" class="card-nav-btn prev" aria-label="Image précédente" data-card-id="1">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button type="button" class="card-nav-btn next" aria-label="Image suivante" data-card-id="1">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
                         </div>
                     </div>
                     <div class="card-text">
-                        <h3 class="card-title">Marathon web</h3>
-                        <p class="card-tag">IUT de Lens (MMI & Info) • Web Dev</p>
+                        <h3 class="card-title" data-i18n="card1_title">Marathon web</h3>
+                        <p class="card-tag" data-i18n="card1_tag">Forum Musical (Jazz) • Backend Info & Frontend MMI</p>
                     </div>
                 </div>
 
@@ -116,12 +131,12 @@
                         <img src="assets/images/navet-chan.png"
                             alt="Code bot java / JS - Navet-Chan" class="card-img">
                         <div class="card-hover">
-                            <span class="btn-more"><i class="fas fa-search-plus"></i> En savoir plus</span>
+                            <span class="btn-more" data-i18n="card2_btn"><i class="fas fa-search-plus"></i> En savoir plus</span>
                         </div>
                     </div>
                     <div class="card-text">
-                        <h3 class="card-title">Code bot java</h3>
-                        <p class="card-tag">JavaScript & Node.js • Bot Discord, ChatGPT & Twitch</p>
+                        <h3 class="card-title" data-i18n="card2_title">Code bot java</h3>
+                        <p class="card-tag" data-i18n="card2_tag">JavaScript & Node.js • Bot Discord, ChatGPT & Twitch</p>
                     </div>
                 </div>
 
@@ -130,12 +145,12 @@
                         <img src="assets/images/pointeuse.png"
                             alt="Pointeuse (STAGE BUT2)" class="card-img">
                         <div class="card-hover">
-                            <span class="btn-more"><i class="fas fa-search-plus"></i> En savoir plus</span>
+                            <span class="btn-more" data-i18n="card3_btn"><i class="fas fa-search-plus"></i> En savoir plus</span>
                         </div>
                     </div>
                     <div class="card-text">
-                        <h3 class="card-title">Pointeuse (STAGE BUT2)</h3>
-                        <p class="card-tag">Application Web • Suivi du Temps & Pointage</p>
+                        <h3 class="card-title" data-i18n="card3_title">Pointeuse (STAGE BUT2)</h3>
+                        <p class="card-tag" data-i18n="card3_tag">Application Web • Suivi du Temps & Pointage</p>
                     </div>
                 </div>
             </div>
@@ -145,8 +160,8 @@
     <section id="contact" class="section contact">
         <div class="container">
             <div class="section-head text-center">
-                <h2 class="section-title">Prenons Contact</h2>
-                <p class="section-subtitle">Une idée de projet ? Une question ? N'hésitez pas à m'envoyer un message.</p>
+                <h2 class="section-title" data-i18n="contact_title">Prenons Contact</h2>
+                <p class="section-subtitle" data-i18n="contact_subtitle">Une idée de projet ? Une question ? N'hésitez pas à m'envoyer un message.</p>
             </div>
 
             <div class="contact-layout">
@@ -154,37 +169,37 @@
                     <div class="contact-row">
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div>
-                            <h4>Email</h4>
+                            <h4 data-i18n="contact_email_title">Email</h4>
                             <p>kilyandubois358@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-row">
                         <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div>
-                            <h4>Téléphone</h4>
-                            <p>+33 7 67 81 70 15</p>
+                            <h4 data-i18n="contact_phone_title">Téléphone</h4>
+                            <p data-i18n="contact_phone_val">+33 7 67 81 70 15</p>
                         </div>
                     </div>
                     <div class="contact-row">
                         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div>
-                            <h4>Localisation</h4>
-                            <p>Lens, France</p>
+                            <h4 data-i18n="contact_loc_title">Localisation</h4>
+                            <p data-i18n="contact_loc_val">Lens, France</p>
                         </div>
                     </div>
                 </div>
 
                 <form class="contact-form" action="https://formspree.io/f/xanppkek" method="POST">
                     <div class="form-field">
-                        <input type="text" name="name" placeholder="Votre Nom" required class="form-input">
+                        <input type="text" name="name" placeholder="Votre Nom" required class="form-input" data-i18n-placeholder="contact_name_ph">
                     </div>
                     <div class="form-field">
-                        <input type="email" name="email" placeholder="Votre Email" required class="form-input">
+                        <input type="email" name="email" placeholder="Votre Email" required class="form-input" data-i18n-placeholder="contact_email_ph">
                     </div>
                     <div class="form-field">
-                        <textarea name="message" placeholder="Votre Message" rows="5" required class="form-input"></textarea>
+                        <textarea name="message" placeholder="Votre Message" rows="5" required class="form-input" data-i18n-placeholder="contact_msg_ph"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Envoyer le message</button>
+                    <button type="submit" class="btn btn-primary btn-block" data-i18n="contact_submit">Envoyer le message</button>
                 </form>
             </div>
         </div>
@@ -194,16 +209,16 @@
         <div class="container footer-inner">
             <div class="footer-brand">
                 <h2>Portfolio.</h2>
-                <p>Création logicielle et web avec passion.</p>
+                <p data-i18n="footer_brand_desc">Création logicielle et web avec passion.</p>
             </div>
             <div class="social-links">
-                <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/ometitnoobz" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/kilyan-dubois/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/ometitnoobz" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://x.com/Ometitz" target="_blank" rel="noopener noreferrer" class="social-link" title="X"><i class="fab fa-x-twitter"></i></a>
             </div>
         </div>
         <div class="copyright text-center">
-            <p>&copy; 2026 Kilyan Dubois. Tous droits réservés.</p>
+            <p data-i18n="footer_copy">&copy; 2026 Kilyan Dubois. Tous droits réservés.</p>
         </div>
     </footer>
 
@@ -213,7 +228,25 @@
             <button class="modal-close" aria-label="Fermer"><i class="fas fa-times"></i></button>
             <div class="modal-body">
                 <div class="modal-media">
-                    <img id="modal-img" src="" alt="Aperçu du projet" class="modal-img">
+                    <div class="modal-carousel" id="modal-carousel">
+                        <div class="carousel-track" id="carousel-track">
+                            <img id="modal-img" src="" alt="Aperçu du projet" class="modal-img">
+                        </div>
+                        <button type="button" class="carousel-nav prev" id="carousel-prev" aria-label="Image précédente">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button type="button" class="carousel-nav next" id="carousel-next" aria-label="Image suivante">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="carousel-indicators" id="carousel-indicators">
+                            <span class="carousel-counter" id="carousel-counter">1 / 1</span>
+                            <span class="carousel-tag" id="carousel-tag">Aperçu</span>
+                        </div>
+                        <div class="carousel-dots" id="carousel-dots"></div>
+                        <button type="button" class="zoom-trigger-btn" id="zoom-trigger-btn" aria-label="Agrandir l'image" title="Agrandir l'image">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="modal-info">
                     <h2 id="modal-title" class="modal-title">Titre du Projet</h2>
@@ -224,6 +257,19 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="zoom-modal" class="zoom-modal" aria-hidden="true">
+        <div class="zoom-backdrop" id="zoom-backdrop"></div>
+        <div class="zoom-dialog">
+            <button class="zoom-close" id="zoom-close" aria-label="Fermer l'agrandissement"><i class="fas fa-times"></i></button>
+            <div class="zoom-stage">
+                <img id="zoom-img" src="" alt="Aperçu agrandi" class="zoom-img">
+            </div>
+            <button type="button" class="zoom-nav prev" id="zoom-prev" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+            <button type="button" class="zoom-nav next" id="zoom-next" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+            <div class="zoom-caption" id="zoom-caption"></div>
         </div>
     </div>
 
