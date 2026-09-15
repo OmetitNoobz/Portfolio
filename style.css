@@ -1037,6 +1037,25 @@ ul {
     box-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
 }
 
+.carousel-caption {
+    position: absolute;
+    bottom: 28px;
+    left: 10px;
+    right: 10px;
+    text-align: center;
+    font-size: 0.73rem;
+    color: #f1f5f9;
+    background: rgba(15, 23, 42, 0.88);
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    z-index: 10;
+    pointer-events: none;
+    line-height: 1.35;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
 .zoom-trigger-btn {
     position: absolute;
     top: 10px;
@@ -1624,3 +1643,89 @@ ul {
 [data-theme="dark"] .modal-info::-webkit-scrollbar-thumb:hover {
     background: #475569;
 }
+
+/* Code Snippets & Syntax Blocks in Modal */
+.code-card {
+    background: #0b1120;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    margin: 1.2rem 0;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.code-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    background: #0f172a;
+    border-bottom: 1px solid #1e293b;
+    font-size: 0.82rem;
+    color: #94a3b8;
+}
+
+.code-dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.code-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.code-dot.red { background: #ef4444; }
+.code-dot.yellow { background: #f59e0b; }
+.code-dot.green { background: #10b981; }
+
+.code-title {
+    font-weight: 600;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Consolas', monospace;
+    font-size: 0.82rem;
+}
+
+.code-lang {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.code-pre {
+    margin: 0;
+    padding: 1rem 1.25rem;
+    background: #0b1120;
+    color: #e2e8f0;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    overflow-x: auto;
+    white-space: pre;
+}
+
+.code-pre code {
+    font-family: inherit;
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    border-radius: 0;
+}
+
+.c-comment { color: #64748b; font-style: italic; }
+.c-keyword { color: #f472b6; font-weight: 600; }
+.c-func { color: #60a5fa; }
+.c-string { color: #34d399; }
+.c-num { color: #fbbf24; }
+.c-prop { color: #cbd5e1; }

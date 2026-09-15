@@ -121,21 +121,30 @@
                         </div>
                     </div>
                     <div class="card-text">
-                        <h3 class="card-title" data-i18n="card1_title">Marathon web</h3>
-                        <p class="card-tag" data-i18n="card1_tag">Forum Musical (Jazz) • Backend Info & Frontend MMI</p>
+                        <h3 class="card-title" data-i18n="card1_title">Marathon du Web</h3>
+                        <p class="card-tag" data-i18n="card1_tag">Blog Musical (Jazz) • Backend Laravel (Info) & Frontend (MMI) • 36h</p>
                     </div>
                 </div>
 
                 <div class="project-card" data-id="2">
                     <div class="card-media">
                         <img src="assets/images/navet-chan.png"
-                            alt="Code bot java / JS - Navet-Chan" class="card-img">
+                            alt="Bot Discord JS - Navet-Chan" class="card-img" id="card-img-2" data-idx="0">
                         <div class="card-hover">
-                            <span class="btn-more" data-i18n="card2_btn"><i class="fas fa-search-plus"></i> En savoir plus</span>
+                            <span class="btn-more" data-i18n="card2_btn"><i class="fas fa-images"></i> Voir le carrousel & détails</span>
+                        </div>
+                        <span class="carousel-badge" data-i18n="card2_badge"><i class="fas fa-images"></i> 3 images</span>
+                        <div class="card-slider-nav">
+                            <button type="button" class="card-nav-btn prev" aria-label="Image précédente" data-card-id="2">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button type="button" class="card-nav-btn next" aria-label="Image suivante" data-card-id="2">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
                         </div>
                     </div>
                     <div class="card-text">
-                        <h3 class="card-title" data-i18n="card2_title">Code bot java</h3>
+                        <h3 class="card-title" data-i18n="card2_title">Bot Discord JS (Navet-Chan)</h3>
                         <p class="card-tag" data-i18n="card2_tag">JavaScript & Node.js • Bot Discord, ChatGPT & Twitch</p>
                     </div>
                 </div>
@@ -243,6 +252,7 @@
                             <span class="carousel-tag" id="carousel-tag">Aperçu</span>
                         </div>
                         <div class="carousel-dots" id="carousel-dots"></div>
+                        <div class="carousel-caption" id="carousel-caption"></div>
                         <button type="button" class="zoom-trigger-btn" id="zoom-trigger-btn" aria-label="Agrandir l'image" title="Agrandir l'image">
                             <i class="fas fa-search-plus"></i>
                         </button>
