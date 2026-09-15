@@ -1,101 +1,233 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kilyan Dubois - Etudiant Informatique</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — Kilyan Dubois</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
 </head>
+
 <body>
 
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#presentation" class="logo">Portfolio.</a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#presentation" class="nav-link">Présentation</a></li>
+                    <li><a href="#dernier-projet" class="nav-link">Dernier Projet</a></li>
+                    <li><a href="#works" class="nav-link">Mes Travaux</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-tools">
+                <button id="theme-toggle" class="theme-btn" aria-label="Basculer de thème" title="Mode Sombre / Mode Clair">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="burger-btn" aria-label="Menu mobile"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">Kilyan<span> Dubois</span></div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="info.html">À propos</a></li>
-        <li><a href="travaux.html">Mes travaux</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <section id="presentation" class="hero">
+        <div class="container hero-content">
+            <span class="hero-tag">Bonjour, je suis</span>
+            <h1 class="hero-title">Créatif & Développeur</h1>
+            <p class="hero-desc">
+                Bienvenue sur mon portfolio. Je conçois des applications web modernes, fluides et élégantes avec une
+                attention particulière à l'architecture, aux performances et à l'expérience utilisateur.
+            </p>
+            <div class="hero-btns">
+                <a href="#dernier-projet" class="btn btn-primary">Dernier projet</a>
+                <a href="#works" class="btn btn-secondary">Voir mes travaux</a>
+            </div>
+        </div>
+    </section>
 
-    <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-text">
-      <h3>Salut, je suis</h3>
-      <h1>Kilyan Dubois</h1>
-      <h2>Étudiant <span>Info</span></h2>
-      <p>En deuxième année de BUT à l'IUT d'Artois à Lens</p>
-      <div class="buttons">
-        <a href="travaux.html" class="btn primary">Voir mon travail</a>
-        <a href="contact.html" class="btn secondary">Contactez-moi</a>
-      </div>
+    <section id="dernier-projet" class="section dernier-projet">
+        <div class="container">
+            <div class="section-head text-center">
+                <h2 class="section-title">DERNIER PROJET</h2>
+                <p class="section-subtitle">Découvrez ma dernière réalisation en vidéo — Cliquez pour visiter le site</p>
+            </div>
+            
+            <div class="lead-wrapper">
+                <a href="https://ometitnoobz.github.io/Web/" target="_blank" rel="noopener noreferrer" class="lead-card" title="Visiter le site OmeRyth">
+                    <div class="video-box">
+                        <img src="assets/images/omeryth.png" alt="OmeRyth — Logiciel de Doublage & Bande Rythmo" class="lead-img" id="latest-img">
+                        <video autoplay loop muted playsinline poster="assets/images/omeryth.png" class="lead-video" id="latest-video">
+                            <source src="assets/videos/dernier-projet.mp4" type="video/mp4">
+                            Votre navigateur ne prend pas en charge la balise vidéo.
+                        </video>
+                        <div class="video-hover">
+                            <div class="cta-badge">
+                                <span class="play-icon"><i class="fas fa-external-link-alt"></i></span>
+                                <span class="cta-text">Visiter le site : ometitnoobz.github.io/Web/</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lead-meta">
+                        <div class="tag-pill"><i class="fas fa-layer-group"></i> OmeRyth — Logiciel de Doublage & Bande Rythmo</div>
+                        <span class="tag-link">https://ometitnoobz.github.io/Web/ <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="works" class="section travaux bg-light">
+        <div class="container">
+            <div class="section-head text-center">
+                <h2 class="section-title">Mes Travaux</h2>
+                <p class="section-subtitle">Découvrez quelques-uns de mes récents projets et réalisations.</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card" data-id="1">
+                    <div class="card-media">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Marathon Web" class="card-img">
+                        <div class="card-hover">
+                            <span class="btn-more"><i class="fas fa-search-plus"></i> En savoir plus</span>
+                        </div>
+                    </div>
+                    <div class="card-text">
+                        <h3 class="card-title">Marathon web</h3>
+                        <p class="card-tag">IUT de Lens (MMI & Info) • Web Dev</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="2">
+                    <div class="card-media">
+                        <img src="assets/images/navet-chan.png"
+                            alt="Code bot java / JS - Navet-Chan" class="card-img">
+                        <div class="card-hover">
+                            <span class="btn-more"><i class="fas fa-search-plus"></i> En savoir plus</span>
+                        </div>
+                    </div>
+                    <div class="card-text">
+                        <h3 class="card-title">Code bot java</h3>
+                        <p class="card-tag">JavaScript & Node.js • Bot Discord, ChatGPT & Twitch</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="3">
+                    <div class="card-media">
+                        <img src="assets/images/pointeuse.png"
+                            alt="Pointeuse (STAGE BUT2)" class="card-img">
+                        <div class="card-hover">
+                            <span class="btn-more"><i class="fas fa-search-plus"></i> En savoir plus</span>
+                        </div>
+                    </div>
+                    <div class="card-text">
+                        <h3 class="card-title">Pointeuse (STAGE BUT2)</h3>
+                        <p class="card-tag">Application Web • Suivi du Temps & Pointage</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-head text-center">
+                <h2 class="section-title">Prenons Contact</h2>
+                <p class="section-subtitle">Une idée de projet ? Une question ? N'hésitez pas à m'envoyer un message.</p>
+            </div>
+
+            <div class="contact-layout">
+                <div class="contact-list">
+                    <div class="contact-row">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>kilyandubois358@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-row">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Téléphone</h4>
+                            <p>+33 7 67 81 70 15</p>
+                        </div>
+                    </div>
+                    <div class="contact-row">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Localisation</h4>
+                            <p>Lens, France</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" action="https://formspree.io/f/xanppkek" method="POST">
+                    <div class="form-field">
+                        <input type="text" name="name" placeholder="Votre Nom" required class="form-input">
+                    </div>
+                    <div class="form-field">
+                        <input type="email" name="email" placeholder="Votre Email" required class="form-input">
+                    </div>
+                    <div class="form-field">
+                        <textarea name="message" placeholder="Votre Message" rows="5" required class="form-input"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <h2>Portfolio.</h2>
+                <p>Création logicielle et web avec passion.</p>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/ometitnoobz" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="copyright text-center">
+            <p>&copy; 2026 Kilyan Dubois. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <div id="work-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-box">
+            <button class="modal-close" aria-label="Fermer"><i class="fas fa-times"></i></button>
+            <div class="modal-body">
+                <div class="modal-media">
+                    <img id="modal-img" src="" alt="Aperçu du projet" class="modal-img">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-title" class="modal-title">Titre du Projet</h2>
+                    <p id="modal-category" class="modal-tag">Catégorie</p>
+                    <div id="modal-desc" class="modal-desc">Description détaillée de mon travail ici.</div>
+                    <div class="modal-actions" id="modal-actions">
+                        <a href="#" id="modal-link-btn" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="hero-image">
-        <img src="images/DSC_9769 (1).jpg" alt="Photo">
-    </div>
-  </section> <!-- 🔹 Fin du hero -->
-
-  <!-- Section Projets -->
-  <section class="projects">
-    <div class="projects-header">
-      <h1>Projets</h1>
-    </div>
-
-    <div class="projects-grid">
-      <div class="project-card">
-          <div class="card-header">
-            <h2>Projet Marathon Web</h2>
-          </div>
-          <p>Site web réalisé en collaboration avec le département MMI de l'IUT de Lens Lors d'un marathon de 3 jours.</p>
-          <div class="tags">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>Git</span>
-          </div>
-        </div>
-      <div class="project-card">
-        <div class="card-header">
-          <h2>Navet-Chan</h2>
-        </div>
-        <p>Bot discord intelligent créé en JavaScript, possible de parler textuellement avec lui, TTS, commandes...</p>
-        <div class="tags">
-          <span>JavaScript</span>
-          <span>Database</span>
-          <span>Multi-plateforme</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="card-header">
-          <h2>Création portfolio</h2>
-        </div>
-        <p>Création d'un portfolio en HTML/CSS avec utilisation de JavaScript</p>
-        <div class="tags">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-        </div>
-      </div>
-
-    
-    </div>
-
-    <div class="projects-button">
-      <a href="travaux.html" class="btn primary">Voir plus de projets</a>
-    </div>
-  </section>
-
+    <script src="script.js"></script>
 </body>
-</main>
-  <footer class="site-footer">
-    <div class="footer-content">
-      <span>&copy; 2025 Kilyan Dubois. Tous droits réservés.</span>
-    </div>
-  </footer>
-</body>
+
 </html>
